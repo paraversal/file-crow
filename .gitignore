@@ -7,9 +7,6 @@
 # Keep implementation plans and progress logs local. Track shared references.
 /docs/plans/*
 !/docs/plans/inbox.md
-!/docs/plans/m9/
-/docs/plans/m9/*
-!/docs/plans/m9/README.md
 !/docs/plans/ui-overhaul/
 /docs/plans/ui-overhaul/*
 !/docs/plans/ui-overhaul/README.md
@@ -19,3 +16,6 @@
 !/docs/plans/done/m7/
 /docs/plans/done/m7/*
 !/docs/plans/done/m7/findings.md
+!/docs/plans/done/m9/
+/docs/plans/done/m9/*
+!/docs/plans/done/m9/README.md

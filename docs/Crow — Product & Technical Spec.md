@@ -190,11 +190,11 @@ The sidebar is a full pane: it can take focus, be filtered with `/`, and hold li
 | --- | --- | --- | --- |
 | Favorites | Folders and files, in nestable groups | Custom icon and color per item; a mark letter (`'a`) for instant jumps; drop onto an item to move, Option-drop to copy | Yes |
 | Recent | Frequently and recently used folders | Ranked by frecency; uses zoxide's database when installed (`zoxide query --list --score`) | Yes |
-| Saved queries | Live searches, e.g. "PDFs in Documents, last 30 days" | Live result count; open as a virtual folder | Later |
-| Projects | Git repositories under chosen roots | Provided by the git plugin; branch and changed-file count | Later |
+| Saved queries | Live searches, e.g. "PDFs in Documents, last 30 days" | Live result count; open as a virtual folder | M9 |
+| Projects | Git repositories under chosen roots | Provided by the git plugin; branch and changed-file count | M9 |
 | Locations | Volumes, iCloud, network shares | Free space bar; eject on hover | Yes |
-| Tags | Finder tags | Same tags Finder sees | Later |
-| Plugin sections | Anything a plugin provides | Same API as built-in sections | Later |
+| Tags | Finder tags | Same tags Finder sees | M9 |
+| Plugin sections | Anything a plugin provides | Same API as built-in sections | M9 |
 
 Every section can be collapsed, reordered or hidden. The sidebar's contents live in `~/.config/crow/sidebar.toml`, so a setup can be synced through dotfiles.
 
@@ -301,16 +301,16 @@ The MVP is a keyboard-driven column and list browser with fast, visible search: 
 | Basic file operations, undo, activity log | MVP | New folder, rename, move, copy, trash |
 | Finder-style preview pane, Quick Look, drag out to other apps | MVP |  |
 | Theme index with live reload | MVP |  |
-| Native macOS icons and Finder path names (icon packs and path styles come later as settings) | MVP |  |
+| Native macOS icons and Finder path names | MVP | Icon packs and the Explorer-style path bar followed as settings in M9 |
 | View-settings model (global, path rules, folder) | MVP |  |
-| Public Rhai plugin API | Later | v0.2 |
-| Git plugin | Later | First public plugin |
-| Icon and gallery views | Later |  |
-| Copy queue: pause, resume, conflict dialog | Later |  |
-| Drop in from other apps, spring-loaded folders | Later |  |
-| Saved queries, Projects and Tags in the sidebar | Later |  |
-| Folder sizes, batch rename with preview | Later |  |
-| iCloud download status | Later |  |
+| Public Rhai plugin API | M9 | [Plugin author docs](plugins.md) |
+| Git plugin | M9 | First public plugin |
+| Icon and gallery views | M9 |  |
+| Copy queue: pause, resume, conflict dialog | M9 |  |
+| Drop in from other apps, spring-loaded folders | M9 |  |
+| Saved queries, Projects and Tags in the sidebar | M9 |  |
+| Folder sizes, batch rename with preview | M8, M9 | Folder sizes in M8, batch rename in M9 |
+| iCloud download status | M9 |  |
 | Staging, committing, pushing | Not planned | Stays with the `git` CLI |
 | Desktop icons, Open/Save panels | Not planned | macOS keeps these for Finder |
 | Free icon placement | Not planned | Breaks principle 3 |

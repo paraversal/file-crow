@@ -1,19 +1,8 @@
 # Crow roadmap
 
-Last updated 2026-11-19. The daily-driver MVP, Finder parity, and search reliability milestones are complete. Phase 2 is underway.
+Last updated 2026-11-21. The daily-driver MVP, Finder parity, search reliability and M9 (plugins, views and operations) milestones are complete. The next milestone has not been chosen.
 
-## Phase 2 — M9
-
-Plugin support, Git Projects and review, iCloud status, and the first maintenance pieces have merged. The [M9 roadmap](plans/m9/README.md) records shipped work, dependencies, and the remaining scope.
-
-| Area | Remaining work |
-| --- | --- |
-| Views and icons | Data-only icon packs, icon grid with rectangle selection, and Gallery |
-| Search and organization | Saved queries and Finder tags |
-| File operations | Copy queue with pause, resume and conflict handling, batch rename with preview, and external drops with spring-loaded folders |
-| Appearance | Optional Explorer-style path bar and Solarized Light contrast in the shared theme index |
-
-The [inbox](plans/inbox.md) holds work awaiting triage. Search will continue to walk the live filesystem. The [product spec](Crow%20%E2%80%94%20Product%20%26%20Technical%20Spec.md#mvp-scope) records the broader scope boundaries.
+The [inbox](plans/inbox.md) holds work awaiting triage, including custom keybindings and the deferred M9 audit items. Search will continue to walk the live filesystem. The [product spec](Crow%20%E2%80%94%20Product%20%26%20Technical%20Spec.md#mvp-scope) records the broader scope boundaries.
 
 ## Completed milestones
 
@@ -48,5 +37,24 @@ The [inbox](plans/inbox.md) holds work awaiting triage. Search will continue to 
 | B3 | Search Home, explicit Folder scope, and ways to widen a search | [#58](https://github.com/paraversal/file-crow/pull/58) |
 | B4 | Separate result budgets and stable selection while results arrive | [#59](https://github.com/paraversal/file-crow/pull/59) |
 | B5 | Regression corpus, randomized search oracle, and fuzz coverage | [#60](https://github.com/paraversal/file-crow/pull/60) |
+
+### M9 — Plugins, views and operations
+
+[Index and verification](plans/done/m9/README.md) · [Code audit](m9-code-audit.md)
+
+| Area | What shipped | PRs |
+| --- | --- | --- |
+| Plugins | Versioned Rhai packages with permissions and budgeted workers, app extension surfaces, and [plugin author docs](plugins.md) | [#61](https://github.com/paraversal/file-crow/pull/61), [#66](https://github.com/paraversal/file-crow/pull/66) |
+| Git and Projects | Read-only Git status and lines changed, Projects under chosen roots, review and diff, pinned repository status | [#67](https://github.com/paraversal/file-crow/pull/67), [#68](https://github.com/paraversal/file-crow/pull/68) |
+| iCloud | Download status and metadata-only browsing of placeholders | [#65](https://github.com/paraversal/file-crow/pull/65) |
+| Settings | Category sidebar, settings search, shared configuration errors, view and preview defaults | [#73](https://github.com/paraversal/file-crow/pull/73) |
+| Views and icons | Data-only icon packs, icon grid with rectangle selection, Gallery, List fit beside Preview, navigation motion | [#71](https://github.com/paraversal/file-crow/pull/71), [#74](https://github.com/paraversal/file-crow/pull/74), [#75](https://github.com/paraversal/file-crow/pull/75), [#72](https://github.com/paraversal/file-crow/pull/72), [#69](https://github.com/paraversal/file-crow/pull/69) |
+| Search and organization | Saved queries as live destinations, Finder tags in the sidebar, filter and queries | [#76](https://github.com/paraversal/file-crow/pull/76), [#77](https://github.com/paraversal/file-crow/pull/77) |
+| File operations | Resumable copy jobs, app-wide copy queue with pause, resume and conflicts, batch rename with preview and one undo | [#78](https://github.com/paraversal/file-crow/pull/78), [#79](https://github.com/paraversal/file-crow/pull/79), [#80](https://github.com/paraversal/file-crow/pull/80) |
+| Paths and drops | Explorer-style path bar, drops from other apps and spring-loaded folders | [#81](https://github.com/paraversal/file-crow/pull/81), [#82](https://github.com/paraversal/file-crow/pull/82) |
+| Test tooling | Owned temp fixtures, cross-run test and fuzz reports, module extraction | [#62](https://github.com/paraversal/file-crow/pull/62), [#63](https://github.com/paraversal/file-crow/pull/63), [#64](https://github.com/paraversal/file-crow/pull/64) |
+| Audit and fixes | Through-M9 audit, seven fix batches and the saved-rename fix | [#83](https://github.com/paraversal/file-crow/pull/83)–[#87](https://github.com/paraversal/file-crow/pull/87), [#89](https://github.com/paraversal/file-crow/pull/89)–[#92](https://github.com/paraversal/file-crow/pull/92) |
+
+Not planned: Solarized Light contrast in the shared theme index (P9E); Crow uses the theme index as it is.
 
 Update the relevant roadmap and record the PR when a piece merges. Keep implementation steps and progress logs in the local planning files described in [AGENTS.md](../AGENTS.md).

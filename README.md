@@ -3,7 +3,7 @@
 A Finder-style file explorer for macOS, written in Rust on [GPUI](https://github.com/zed-industries/zed/tree/main/crates/gpui).
 It keeps Finder's directness and aims to be faster, more predictable and keyboard-first.
 
-Phase 1 is complete, including the Finder parity and search reliability passes. Phase 2 (M9) is underway. Plugin support, Git Projects and review, and iCloud download status have shipped. See the [roadmap](docs/ROADMAP.md) for milestone status and upcoming work.
+Phase 1 is complete, including the Finder parity and search reliability passes. Phase 2's first milestone (M9) is complete: plugins, Git Projects and review, iCloud download status, icon packs, the icon grid and Gallery, saved queries and Finder tags, the copy queue, batch rename, the Explorer-style path bar, and drops from other apps with spring-loaded folders. See the [roadmap](docs/ROADMAP.md) for milestone status and upcoming work.
 
 ## Build and run
 
@@ -200,7 +200,7 @@ changing the saved record. The sidebar row's context menu edits or removes it.
 The sidebar's Tags section shows Finder tags discovered from Spotlight's index, plus `pinned_tags`
 from `sidebar.toml`; hidden files and unindexed volumes are not in that list. A tag row opens every
 indexed item carrying it as a virtual destination. The `/` filter's tag control opens a multi-select
-sheet, and every selected tag must be present; File ▸ Filter by Tag… and Cmd-K's `>` commands reach
+sheet, and every selected tag must be present; Edit ▸ Filter by Tag… and Cmd-K's `>` commands reach
 it from the list too. A saved query's Tags field accepts the same names, case-sensitive.
 
 ## Keys
@@ -227,8 +227,8 @@ Esc clears it, arrows move within the matches, and Return moves focus into them 
 match (the first unless you arrowed); there Cmd-Down opens it and Esc clears the filter. Cmd-F carries the
 filter text into a search of that folder. Cmd-1 shows the icon grid, Cmd-2 a list, Cmd-3 columns and Cmd-4 the gallery. Gallery puts a filename rail beside a large preview: rows show a thumbnail or icon, name, size and modified date; Up/Down and Vim `j`/`k` move, Left/Right and Vim `h`/`l` are aliases, Home/End jump to the ends, and Shift, Cmd-click, type-to-select, Return, rename, clipboard, Quick Look and drag/drop match the list. A selected folder previews its immediate children without opening them; exactly two selected entries compare side by side (stacked when the window is narrow), while three or more keep the full selection but preview the focused entry. A window shows each
 folder in that folder's view, so moving into a folder with its own view (or a `views.toml` rule)
-switches list and columns; with `view_per_folder = false` in `settings.toml` a window keeps the
-view you give it, and Cmd-2/Cmd-3 save nothing. In the list, Right opens the selected folder inline (Right again goes into it); Left steps to the row that contains a nested one, closes an open folder, or goes up from the top level. In columns, Left and Right move between them, and Left in the leftmost column goes up a folder. Vim `h`/`l` follow the same keys.
+switches the view; with `view_per_folder = false` in `settings.toml` a window keeps the
+view you give it, and Cmd-1 to Cmd-4 save nothing. In the list, Right opens the selected folder inline (Right again goes into it); Left steps to the row that contains a nested one, closes an open folder, or goes up from the top level. In columns, Left and Right move between them, and Left in the leftmost column goes up a folder. Vim `h`/`l` follow the same keys.
 In icons, arrows follow the tile grid (Up/Down keep the column, Left/Right stop at the row's edge), Shift extends in display order and Cmd-click toggles. Dragging from empty space draws a selection rectangle; Cmd keeps the starting selection, Esc restores it, and dragging past an edge autoscrolls. View ▸ Icon Size offers Compact, Standard and Large; View ▸ Icon Caption optionally shows a plugin column such as Lines under each name. Quick Look thumbnails replace the native or pack icon when Quick Look can render one, while cloud placeholders keep their download badge.
 
 Sidebar: drag favorites to reorder them (or Cmd-Option-Up/Down), drop files on any row to move or
@@ -287,7 +287,7 @@ single "here", so that line is disabled. Search results have their own menu: Ope
 Folder, Quick Look, Show Info, Copy, Cut, Copy Path and Move to Trash.
 
 Testing, benchmarks and the hand-test checklist: [docs/testing.md](docs/testing.md).
-Fuzzing: `cargo test -p crow-app fuzz_smoke`; long runs and replay: [docs/testing.md#fuzzing](docs/testing.md#fuzzing). For real frame times, `crow --fuzz` (built with `--features fuzz`) reports any step over its budget (50 ms; 100 ms for a bulk step acting on more than 10 000 paths) and fails on a heartbeat over 250 ms.
+Fuzzing: `cargo test -p crow-app fuzz_smoke`; long runs and replay: [docs/testing.md#fuzzing](docs/testing.md#fuzzing). Cross-run test and fuzz reports: [docs/testing.md#test-and-fuzz-reports](docs/testing.md#test-and-fuzz-reports). Writing plugins: [docs/plugins.md](docs/plugins.md). For real frame times, `crow --fuzz` (built with `--features fuzz`) reports any step over its budget (50 ms; 100 ms for a bulk step acting on more than 10 000 paths) and fails on a heartbeat over 250 ms.
 
 Dev tools: `crow --motion-lab` opens a fake folder where every feedback event (trash, move,
 undo, new folder, refuse, copy, tip, empty Trash) can be fired in the three motion modes and
